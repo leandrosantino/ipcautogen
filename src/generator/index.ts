@@ -1,6 +1,5 @@
 import { compiler } from "./compiler"
 import { getHandlers } from "./getHandlers"
-import { Method } from "./Handler"
 import { methodTemplate, handlerTemplate, scriptTemplate } from "./templates"
 
 export function generateHandlers() {
@@ -15,9 +14,9 @@ export function generateHandlers() {
 
   try {
     compiler(script)
-    console.log("Functions generated successfully.")
+    console.log("Handlers generated successfully.")
   } catch (e) {
-    console.error("Error generating functions:", e.message)
+    console.error("Error generating functions")
   }
 }
 
