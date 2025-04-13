@@ -1,5 +1,5 @@
 {
-  "name": "ipcautogen",
+  "name": "ipcgenerator",
   "version": "1.0.3",
   "description": "",
   "main": "dist/index.js",
@@ -8,21 +8,23 @@
     "ipcgen": "dist/cli.js"
   },
   "files": [
-    "dist"
+    "dist",
+    "handlers"
   ],
   "exports": {
     ".": {
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts"
     },
-    "./generated/*": {
-      "require": "./generated/*.js",
-      "types": "./generated/*.d.ts"
+    "./handlers": {
+      "require": "./handlers/index.js",
+      "types": "./handlers/index.d.ts"
     }
   },
   "scripts": {
-    "build": "tsc",
-    "publish": "npm run build && npm publish --access public"
+    "build": "tsc && npm link",
+    "cli": "tsx ./src/cli.ts",
+    "pub": "npm patch && npm publish --access public"
   },
   "keywords": [],
   "author": "",
@@ -32,6 +34,8 @@
     "electron": "^29.0.0"
   },
   "devDependencies": {
+    "@swc/cli": "^0.6.0",
+    "@swc/core": "^1.11.20",
     "@types/node": "^22.14.1",
     "electron": "^29.0.0",
     "tsx": "^4.19.3",

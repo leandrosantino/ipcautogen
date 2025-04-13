@@ -8,11 +8,11 @@ export function compiler(tsCode: string) {
   try {
     moduleRoot = path.join(path.dirname(require.resolve('ipcautogen')), '..')
   } catch {
-    moduleRoot = path.resolve(__dirname, '..')
+    moduleRoot = path.resolve(__dirname, '../../')
   }
 
-  const outputDir = path.join(moduleRoot, 'generated')
-  const fileName = 'handlers.ts'
+  const outputDir = path.join(moduleRoot, 'handlers')
+  const fileName = 'index.ts'
   const filePath = path.join(outputDir, fileName)
 
   // Código em string (gerado com ts-morph ou outra coisa)
