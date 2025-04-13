@@ -24,7 +24,7 @@
   "scripts": {
     "build": "tsc && npm link",
     "cli": "tsx ./src/cli.ts",
-    "pub": "npm patch && npm publish --access public"
+    "pub": "npm version patch && npm publish --access public"
   },
   "keywords": [],
   "author": "",
